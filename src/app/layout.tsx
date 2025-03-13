@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Airplane Game",
   description: "An exciting airplane game",
+  icons: "/icon.ico"
 };
 
 export default function RootLayout({
