@@ -16,21 +16,21 @@ export async function connectToDatabase() {
 
   // If no cached connection, create a new one
   console.log("Establishing new database connection...");
-  
+
   try {
     const client = new MongoClient(uri);
     await client.connect();
-    
+
     // Verify the connection by running a simple command
     await client.db(dbName).command({ ping: 1 });
     console.log("✅ Connected successfully to MongoDB");
-    
+
     const db = client.db(dbName);
-    
+
     // Cache the connection
     cachedClient = client;
     cachedDb = db;
-    
+
     return { client, db };
   } catch (error) {
     console.error("❌ MongoDB Connection Error:", error);
